@@ -12,6 +12,7 @@
 
 ### Association
 
+
 - has_many :goods
 - has_many :Shipping
 
