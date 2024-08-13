@@ -15,8 +15,8 @@
 
 ### Association
 
-- has_many :goods
-- has_many :sends
+- has_many :good
+- has_many :destination
 
 
 ## goods テーブル
@@ -25,11 +25,11 @@
 | ------             | ------     | -----------                    |
 | name               | string     | null: false                    |
 | name_explanation   | text       | null: false                    |
-| category           | string     | null: false                    |
-| condition          | string     | null: false                    |
-| delivery           | string     | null: false                    |
-| aria               | string     | null: false                    |
-| day_id             | integer    | null: false                    |
+| category_id        | integer    | null: false                    |
+| condition_id       | integer    | null: false                    |
+| delivery_id        | integer    | null: false                    |
+| aria_id            | integer    | null: false                    |
+| time_id            | integer    | null: false                    |
 | price              | string     | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
@@ -37,25 +37,25 @@
 
 ### Association
 
-- belongs_to :users
+- belongs_to :user
 
 
-## sends テーブル
+## destinations テーブル
 
 | Column           | Type           | Options                        |
 | ------           | ----------     | ------------------------------ |
 | post_code        | string         | null: false                    |
-| prefecture_id    | integer        | null: false                    |
+| aria_id          | integer        | null: false                    |
 | municipalities   | string         | null: false                    |
 | street           | string         | null: false                    |
-| building         | string         | null: false                    | 
+| building         | text           | null: false                    | 
 | telephone        | string         | null: false                    |
-| buys             | references     | null: false, foreign_key: true |
+| buy              | references     | null: false, foreign_key: true |
 
 ### Association
 
 - 
-- belongs_to :buys
+- belongs_to :buy
 
 ## buys テーブル
 
@@ -66,5 +66,5 @@
 
 ### Association
 
-- belongs_to :sends
-- belongs_to :goods
+- belongs_to :destination
+- belongs_to :good
