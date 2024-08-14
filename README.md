@@ -15,8 +15,8 @@
 
 ### Association
 
-- has_many :good
-- has_many :destination
+- has_many :goods
+- has_many :destinations
 
 
 ## goods テーブル
@@ -38,6 +38,7 @@
 ### Association
 
 - belongs_to :user
+  has_one :destinations
 
 
 ## destinations テーブル
@@ -48,7 +49,7 @@
 | aria_id          | integer        | null: false                    |
 | municipalities   | string         | null: false                    |
 | street           | string         | null: false                    |
-| building         | text           | null: false                    | 
+| building         | string         |                                | 
 | telephone        | string         | null: false                    |
 | buy              | references     | null: false, foreign_key: true |
 
@@ -66,5 +67,6 @@
 
 ### Association
 
-- belongs_to :destination
+- has_one :destination
 - belongs_to :good
+- belongs_to :user
