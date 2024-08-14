@@ -16,7 +16,7 @@
 ### Association
 
 - has_many :goods
-- has_many :destinations
+- has_many :buys
 
 
 ## goods テーブル
@@ -30,7 +30,7 @@
 | delivery_id        | integer    | null: false                    |
 | aria_id            | integer    | null: false                    |
 | time_id            | integer    | null: false                    |
-| price              | string     | null: false                    |
+| price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
 
@@ -38,7 +38,7 @@
 ### Association
 
 - belongs_to :user
-  has_one :destinations
+  has_one :buys
 
 
 ## destinations テーブル
