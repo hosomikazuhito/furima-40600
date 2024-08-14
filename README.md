@@ -29,7 +29,7 @@
 | condition_id       | integer    | null: false                    |
 | delivery_id        | integer    | null: false                    |
 | aria_id            | integer    | null: false                    |
-| time_id            | integer    | null: false                    |
+| shipment_id        | integer    | null: false                    |
 | price              | integer    | null: false                    |
 | user               | references | null: false, foreign_key: true |
 
@@ -38,7 +38,7 @@
 ### Association
 
 - belongs_to :user
-  has_one :buys
+  has_one :buy
 
 
 ## destinations テーブル
