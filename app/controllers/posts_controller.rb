@@ -4,7 +4,7 @@ class PostsController < ApplicationController
   
   
     def index
-      # あなたのロジックをここに追加します
+      
     end
     def move_to_index
       unless user_signed_in?
