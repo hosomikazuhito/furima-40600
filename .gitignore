@@ -43,3 +43,4 @@ app/assets/images/images/icon_camera.pngZone.Identifier
 app/assets/images/images/item-sample.pngZone.Identifier
 app/assets/images/images/search.pngZone.Identifier
 app/assets/images/images/star.pngZone.Identifier
+*.Zone.Identifier
