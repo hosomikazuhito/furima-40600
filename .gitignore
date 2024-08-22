@@ -30,3 +30,16 @@
 # Ignore master key for decrypting credentials and more.
 /config/master.key
 .Ds_Store
+app/assets/images/images/app-store.svgZone.Identifier
+app/assets/images/images/card-jcb.gifZone.Identifier
+app/assets/images/images/card-mastercard.gifZone.Identifier
+app/assets/images/images/comment.pngZone.Identifier
+app/assets/images/images/flag.pngZone.Identifier
+app/assets/images/images/furima-footer.pngZone.Identifier
+app/assets/images/images/furima-header01.pngZone.Identifier
+app/assets/images/images/furima-header02.pngZone.Identifier
+app/assets/images/images/furima-intro01.pngZone.Identifier
+app/assets/images/images/icon_camera.pngZone.Identifier
+app/assets/images/images/item-sample.pngZone.Identifier
+app/assets/images/images/search.pngZone.Identifier
+app/assets/images/images/star.pngZone.Identifier
