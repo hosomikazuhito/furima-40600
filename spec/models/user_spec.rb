@@ -7,8 +7,8 @@ RSpec.describe User, type: :model do
   describe 'ユーザー新規登録' do
     context '新規登録ができる時' do
       it '全ての情報が正しく入力された場合、ユーザー登録が成功する' do
-        user = FactoryBot.build(:user)
-        expect(user).to be_valid
+        @user = FactoryBot.build(:user)
+        expect(@user).to be_valid
       end
     end
     context '新規登録ができない時' do
