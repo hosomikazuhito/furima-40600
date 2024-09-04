@@ -12,9 +12,10 @@ class GoodsController < ApplicationController
   end
   
   
-  #def index
-  #@goods = Good.all
-  #end
+  def index
+  @goods = Good.all
+  @goods = Good.order(created_at: :desc)
+  end
   
   
   def create
@@ -50,6 +51,7 @@ class GoodsController < ApplicationController
   def good_params
   params.require(:good).permit(:name, :price, :name_explanation, :category_id, :condition_id, :delivery_id, :aria_id, :shipment_id, :image)
   end
+  
   
   
   #def configure_permitted_parameters
