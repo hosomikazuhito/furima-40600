@@ -3,7 +3,7 @@ Rails.application.routes.draw do
   root to: 'goods#index'
   
 
-  resources :posts, only: [:index, :new]
+  
   resources :goods, only: [:new, :create, :show, :edit, :update, :destroy]
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html

@@ -58,23 +58,27 @@ RSpec.describe Good, type: :model do
       end
 
       it "価格に半角数字以外が含まれている場合は出品できない" do
-        good = Good.new(price: "123a", user: @user)
-        expect(good).not_to be_valid
+        @good.price = "123a"
+        @good.valid?
+        expect(@good.errors.full_messages).to include("Price is not a number")
       end
 
       it "価格が300円未満では出品できない" do
-        good = Good.new(price: 299, user: @user)
-        expect(good).not_to be_valid
+        @good = Good.new(price: 299, user: @user)
+        @good.valid?
+        expect(@good.errors.full_messages).to include("Price must be greater than or equal to 300")
       end
 
       it "価格が9,999,999円を超えると出品できない" do
-        good = Good.new(price: 10_000_000, user: @user)
-        expect(good).not_to be_valid
+        @good = Good.new(price: 10_000_000, user: @user)
+        @good.valid?
+        expect(@good.errors.full_messages).to include("Price must be less than or equal to 9999999")
       end
 
       it "userが紐付いていなければ出品できない" do
-        good = Good.new(price: 1000)
-        expect(good).not_to be_valid
+        @good = Good.new(price: 1000)
+        @good.valid?
+        expect(@good.errors.full_messages).to include("User must exist")
       end
 
       it 'imageが空では登録できない' do
