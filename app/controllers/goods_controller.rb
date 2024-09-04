@@ -12,9 +12,9 @@ class GoodsController < ApplicationController
   end
   
   
-  def index
-  @goods = Good.all
-  end
+  #def index
+  #@goods = Good.all
+  #end
   
   
   def create
@@ -30,13 +30,13 @@ class GoodsController < ApplicationController
   end
   
   
-  def update
-  if @good.update(good_params)
-  redirect_to @good, notice: 'Good was successfully updated.'
-  else
-  render :edit, status: :unprocessable_entity
-  end
-  end
+  #def update
+  #if @good.update(good_params)
+  #redirect_to @good, notice: 'Good was successfully updated.'
+  #else
+  #render :edit, status: :unprocessable_entity
+  #end
+  #end
   
   
   def set_good
@@ -52,9 +52,9 @@ class GoodsController < ApplicationController
   end
   
   
-  def configure_permitted_parameters
-  devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
-  end
+  #def configure_permitted_parameters
+  #devise_parameter_sanitizer.permit(:sign_up, keys: [:name])
+  #end
   
   
   end

@@ -21,31 +21,31 @@ RSpec.describe Good, type: :model do
       end
 
       it 'category_idが空では登録できない' do
-        @good.category_id = ''
+        @good.category_id = '1'
         @good.valid?
         expect(@good.errors.full_messages).to include "Category can't be blank"
       end
 
       it 'condition_idが空では登録できない' do
-        @good.condition_id = ''
+        @good.condition_id = '1'
         @good.valid?
         expect(@good.errors.full_messages).to include "Condition can't be blank"
       end
 
       it 'delivery_idが空では登録できない' do
-        @good.delivery_id = ''
+        @good.delivery_id = '1'
         @good.valid?
         expect(@good.errors.full_messages).to include "Delivery can't be blank"
       end
 
       it 'aria_idが空では登録できない' do
-        @good.aria_id = ''
+        @good.aria_id = '1'
         @good.valid?
         expect(@good.errors.full_messages).to include "Aria can't be blank"
       end
 
       it 'shipment_idが空では登録できない' do
-        @good.shipment_id = ''
+        @good.shipment_id = '1'
         @good.valid?
         expect(@good.errors.full_messages).to include "Shipment can't be blank"
       end
