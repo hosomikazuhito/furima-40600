@@ -1,10 +1,10 @@
 class GoodsController < ApplicationController
 
 
-  before_action :set_good, except: [:index, :new, :create]
+  #before_action :set_good, except: [:index, :new, :create]
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :contributor_confirmation, only: [:edit, :update, :destroy]
-  before_action :configure_permitted_parameters, if: :devise_controller?
+  #before_action :contributor_confirmation, only: [:edit, :update, :destroy]
+  
   
   
   def new
@@ -39,9 +39,9 @@ class GoodsController < ApplicationController
   #end
   
   
-  def set_good
-  @good = Good.find(params[:id])
-  end
+  #def set_good
+  #@good = Good.find(params[:id])
+  #end
   
   
   private

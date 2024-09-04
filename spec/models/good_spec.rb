@@ -2,7 +2,8 @@ require 'rails_helper'
 
 RSpec.describe Good, type: :model do
   before do
-    @good = FactoryBot.build(:good)
+    @user = FactoryBot.create(:user) # FactoryBotを使用してユーザーを作成
+    @good = FactoryBot.build(:good, user: @user)
   end
 
   describe '商品出品登録' do
@@ -56,6 +57,26 @@ RSpec.describe Good, type: :model do
         expect(@good.errors.full_messages).to include "Price can't be blank"
       end
 
+      it "価格に半角数字以外が含まれている場合は出品できない" do
+        good = Good.new(price: "123a", user: @user)
+        expect(good).not_to be_valid
+      end
+
+      it "価格が300円未満では出品できない" do
+        good = Good.new(price: 299, user: @user)
+        expect(good).not_to be_valid
+      end
+
+      it "価格が9,999,999円を超えると出品できない" do
+        good = Good.new(price: 10_000_000, user: @user)
+        expect(good).not_to be_valid
+      end
+
+      it "userが紐付いていなければ出品できない" do
+        good = Good.new(price: 1000)
+        expect(good).not_to be_valid
+      end
+
       it 'imageが空では登録できない' do
         @good.image = nil
         @good.valid?
@@ -69,5 +90,7 @@ RSpec.describe Good, type: :model do
       end
     end
 
+
+    
   end
 end
