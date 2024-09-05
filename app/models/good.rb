@@ -1,9 +1,4 @@
 class Good < ApplicationRecord
-
-  def sold?
-    self.sold
-  end
-
   belongs_to :user
   #has_one :buy
   has_one_attached :image
@@ -16,11 +11,7 @@ class Good < ApplicationRecord
       "送料込み(出品者負担)"
     end
   
-
-  
-    
   end
-
  
  
   validates :image, presence: true
@@ -32,12 +23,11 @@ class Good < ApplicationRecord
   validates :delivery_id, numericality: { other_than: 1 , message: "can't be blank"}
   validates :aria_id, numericality: { other_than: 1 , message: "can't be blank"} 
   validates :shipment_id, numericality: { other_than: 1 , message: "can't be blank"}
-
-  validates :content, presence: true, unless: :was_attached?
+  
   
   def was_attached?
     self.image.attached?
   end
 
-  
+
 end
