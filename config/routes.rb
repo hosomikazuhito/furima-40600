@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   
 
   
-  resources :goods, only: [:new, :create, :show, :edit, :update, :destroy, :index]
+  resources :goods, only: [:new, :create, :index]
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

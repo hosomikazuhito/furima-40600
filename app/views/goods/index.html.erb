@@ -133,7 +133,7 @@
       <% if @goods_exist %>
         <% @goods.each do |good| %>
           <li class='list'>
-            <%= link_to good_path(good) do %>
+            <%= link_to '#' do %>
               <div class='item-img-content'>
                 <% if good.image.attached? %>
                   <%= image_tag good.image, class: "item-img" %>
