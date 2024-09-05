@@ -12,21 +12,22 @@ class GoodsController < ApplicationController
   end
   
   
-  #def index
-  #@goods = Good.all
-  #end
+  def index
+  
+  @goods = Good.order(created_at: :desc)
+  @goods_exist = @goods.any?
+  end
   
   
   def create
     @good = Good.new(good_params)
-    @good.user = current_user # 現在のユーザーを設定する
-
+    @good.user = current_user
+  
     if @good.save
       redirect_to root_path, notice: '商品が正常に出品されました！'
-   
-  else
-    render :new, status: :unprocessable_entity
-  end
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
   
   
@@ -48,8 +49,9 @@ class GoodsController < ApplicationController
   
   
   def good_params
-  params.require(:good).permit(:name, :price, :name_explanation, :category_id, :condition_id, :delivery_id, :aria_id, :shipment_id, :image)
+    params.require(:good).permit(:name, :name_explanation, :category_id, :condition_id, :delivery_id, :aria_id, :shipment_id, :price, :image)
   end
+  
   
   
   #def configure_permitted_parameters
