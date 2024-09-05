@@ -15,6 +15,7 @@ class GoodsController < ApplicationController
   def index
   @goods = Good.all
   @goods = Good.order(created_at: :desc)
+  @goods_exist = @goods.any?
   end
   
   
