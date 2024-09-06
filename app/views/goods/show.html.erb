@@ -57,7 +57,7 @@
         </tr>
         <tr>
           <th class="detail-item">カテゴリー</th>
-          <td class="detail-value"><%=  @good.category.name%></td>
+          <td class="detail-value"><%=  @good.category.name %></td>
         </tr>
         <tr>
           <th class="detail-item">商品の状態</th>
@@ -112,9 +112,9 @@
       後ろの商品 ＞
     </a>
   </div>
-  <%# 詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
-  <a href="#" class="another-item"><%= "商品のカテゴリー名" %>をもっと見る</a>
-  <%# //詳細ページで表示されている商品のカテゴリー名を表示しましょう %>
+  
+  <a href="#" class="another-item"><%= @good.category.name %>をもっと見る</a>
+  
 </div>
 
 <%= render "shared/footer" %>
