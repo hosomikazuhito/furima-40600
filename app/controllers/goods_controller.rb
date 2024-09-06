@@ -13,9 +13,13 @@ class GoodsController < ApplicationController
   
   
   def index
-  
   @goods = Good.order(created_at: :desc)
   @goods_exist = @goods.any?
+  end
+
+  def show
+    @good = Good.find(params[:id])
+    @user = @good.user
   end
   
   
