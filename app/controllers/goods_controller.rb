@@ -25,7 +25,7 @@ class GoodsController < ApplicationController
   end
 
   def show
-    @good = Good.find(params[:id])
+    
     @user = @good.user
   end
   
@@ -44,7 +44,7 @@ class GoodsController < ApplicationController
   
   
   def update
-    @good = Good.find(params[:id])
+   
     if @good.update(good_params)
       redirect_to @good, notice: '商品が更新されました。'
     else
