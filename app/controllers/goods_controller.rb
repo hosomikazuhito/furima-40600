@@ -64,7 +64,7 @@ class GoodsController < ApplicationController
   
   
   def good_params
-    params.require(:good).permit(:name, :name_explanation, :category_id, :condition_id, :delivery_id, :aria_id, :shipment_id, :price)
+    params.require(:good).permit(:name, :name_explanation, :category_id, :condition_id, :delivery_id, :aria_id, :shipment_id, :price, :image)
   end
   
   def set_good
