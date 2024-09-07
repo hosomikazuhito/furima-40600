@@ -31,7 +31,7 @@
       <% if current_user == @good.user %>
         <%= link_to "商品の編集", edit_good_path(@good), method: :get, class: "item-red-btn" %>
         <p class="or-text">or</p>
-        <%= link_to "削除", "#", data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: "item-destroy" %>
+        <%= link_to "削除", good_path(@good), data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: "item-destroy" %>
       <% else %>
 
 
