@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_good, only: [:edit, :update, :show, :destroy, :buy, :image]
+  before_action :set_good, only: [:edit, :update, :show, :destroy]
   before_action :check_owner, only: [:edit, :update, :destroy]
 
   #before_action :set_good, except: [:index, :new, :create]
@@ -26,8 +26,6 @@ class GoodsController < ApplicationController
   
 
   def show
-    @good = Good.find(params[:id])
-   
     @user = @good.user
   end
   

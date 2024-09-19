@@ -27,11 +27,10 @@ class Good < ApplicationRecord
     when 3
       "送料込み(出品者負担)"
     end
-  
   end
+  
  
- 
-  validates :image, presence: true
+ validates :image, presence: true
   validates :name, presence: true
   validates :price, presence: true, numericality: { only_integer: true, greater_than_or_equal_to: 300, less_than_or_equal_to: 9999999 }
   validates :name_explanation, presence: true 
@@ -45,11 +44,8 @@ class Good < ApplicationRecord
   def was_attached?
     self.image.attached?
   end
-
-  def buy?
-    # 購入済みかどうかを判定するロジックをここに書きます
-    self.buy.present?
-  end
-
-
 end
+  
+ 
+
+
