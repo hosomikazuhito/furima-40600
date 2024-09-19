@@ -11,14 +11,10 @@ class Good < ApplicationRecord
   belongs_to :aria   
   belongs_to :shipment
 
-  def buy?
-    buy.present?
-  end
-
   def sold?
     buy.present?
   end
-  
+
   
   def delivery_method
     case delivery_id

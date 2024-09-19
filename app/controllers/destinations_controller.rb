@@ -9,19 +9,14 @@ class DestinationsController < ApplicationController
 
   def index
     gon.public_key = ENV["PAYJP_PUBLIC_KEY"]
-    @good = Good.find(params[:good_id])
     @destination_buy = DestinationsBuy.new
     @destination = Destination.new
   end
-
-  def new
-    @destination_buy = DestinationsBuy.new
-  end
+    
 
   def create
     @destination_buy = DestinationsBuy.new(destination_buy_params)
-    @good = Good.find(params[:good_id])
-  
+      
     if @destination_buy.valid?
       begin
         ActiveRecord::Base.transaction do
