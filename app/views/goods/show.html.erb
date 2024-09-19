@@ -10,9 +10,11 @@
       <%= image_tag @good.image, class: "item-box-img" %>
       
       <%# 商品が売れている場合は、sold outを表示しましょう %>
+      <% if @good.buy? %>
       <div class="sold-out">
         <span>Sold Out!!</span>
       </div>
+     <% end %>
       <%# //商品が売れている場合は、sold outを表示しましょう %>
     </div>
     <div class="item-price-box">
@@ -20,33 +22,28 @@
         ¥ <%= @good.price %>
       </span>
       <span class="item-postage">
-        <%= @good.delivery_method %>
+        <%= @good.delivery.name %>
       </span>
     </div>
 
     
 
 
-    <% if user_signed_in? %>
-      <% if current_user == @good.user %>
-        <%= link_to "商品の編集", edit_good_path(@good), method: :get, class: "item-red-btn" %>
-        <p class="or-text">or</p>
-        <%= link_to "削除", good_path(@good), data: { turbo_method: :delete, confirm: 'Are you sure?' }, class: "item-destroy" %>
-      <% else %>
-
-
-    
-   <%= link_to "購入画面に進む", "#", class: "item-red-btn" %>
-   <% end %>
-    <% else %>
-    
-      
+   <% if user_signed_in? %>
+      <% unless @good.buy? %>
+        <% if current_user == @good.user %>
+          <%= link_to "商品の編集", edit_good_path(@good), method: :get, class: "item-red-btn" %>
+          <p class="or-text">or</p>
+          <%= link_to "削除", good_path(@good), data: { turbo_method: :delete, confirm: '本当に削除してもよろしいですか？' }, class: "item-destroy" %>
+        <% else %>
+          <%= link_to "購入画面に進む", good_destinations_path(@good), data: { turbo: false }, class: "item-red-btn" %>
+        <% end %>
+      <% end %>
     <% end %>
-       
-
+  
     
-
-    <div class="item-explain-box">
+  </div>
+   <div class="item-explain-box">
       <span><%= @good.name %></span>
     </div>
     <table class="detail-table">

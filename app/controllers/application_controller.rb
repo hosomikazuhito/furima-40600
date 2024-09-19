@@ -10,6 +10,7 @@ class ApplicationController < ActionController::Base
       username == 'ad' && password == '2'
     end
   end
+   
 
   protected
 

@@ -1,6 +1,6 @@
 class GoodsController < ApplicationController
   before_action :authenticate_user!, except: [:index, :show]
-  before_action :set_good, only: [:edit, :update, :show, :destroy]
+  before_action :set_good, only: [:edit, :update, :show, :destroy, :buy, :image]
   before_action :check_owner, only: [:edit, :update, :destroy]
 
   #before_action :set_good, except: [:index, :new, :create]
@@ -12,6 +12,7 @@ class GoodsController < ApplicationController
   def new
   @good = Good.new
   end
+
   
   
   def index
@@ -20,12 +21,13 @@ class GoodsController < ApplicationController
   end
 
   def edit
-   
+  end 
     
-  end
+  
 
   def show
-    
+    @good = Good.find(params[:id])
+   
     @user = @good.user
   end
   
@@ -58,9 +60,6 @@ class GoodsController < ApplicationController
   end
   
   
-  #def set_good
-  #@good = Good.find(params[:id])
-  #end
   
   
   private
@@ -75,7 +74,7 @@ class GoodsController < ApplicationController
   end
 
   def check_owner
-    if @good.user != current_user
+    if @good.user != current_user || @good.sold?
       redirect_to root_path, alert: "あなたはこの商品の編集権限を持っていません。"
     end
   end

@@ -1,7 +1,7 @@
 class Good < ApplicationRecord
   extend ActiveHash::Associations::ActiveRecordExtensions
   belongs_to :user
-  #has_one :buy
+  has_one :buy
   has_one_attached :image
   
   
@@ -10,6 +10,14 @@ class Good < ApplicationRecord
   belongs_to :delivery   
   belongs_to :aria   
   belongs_to :shipment
+
+  def buy?
+    buy.present?
+  end
+
+  def sold?
+    buy.present?
+  end
   
   
   def delivery_method
@@ -36,6 +44,11 @@ class Good < ApplicationRecord
   
   def was_attached?
     self.image.attached?
+  end
+
+  def buy?
+    # 購入済みかどうかを判定するロジックをここに書きます
+    self.buy.present?
   end
 
 
