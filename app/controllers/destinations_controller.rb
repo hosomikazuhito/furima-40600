@@ -41,7 +41,7 @@ class DestinationsController < ApplicationController
   end
   
   def redirect_if_purchased
-    if @good.buy?
+    if @good.sold?
       redirect_to root_path, alert: "この商品は既に購入済みです。"
     end
   end
