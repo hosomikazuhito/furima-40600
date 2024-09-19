@@ -143,9 +143,12 @@
 
                 <!-- 商品が売れていればsold outを表示 -->
                 
-                  <div class='sold-out'>
-                    <span>Sold Out!!</span>
-                  </div>
+                  <% if good.buy? %>
+              <div class='sold-out'>
+                <span>Sold Out!!</span>
+              </div>
+            <% end %>
+
                 
               </div>
               <div class='item-info'>

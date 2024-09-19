@@ -12,6 +12,7 @@ class GoodsController < ApplicationController
   def new
   @good = Good.new
   end
+
   
   
   def index
@@ -20,12 +21,11 @@ class GoodsController < ApplicationController
   end
 
   def edit
-   
+  end 
     
-  end
+  
 
   def show
-    
     @user = @good.user
   end
   
@@ -58,9 +58,6 @@ class GoodsController < ApplicationController
   end
   
   
-  #def set_good
-  #@good = Good.find(params[:id])
-  #end
   
   
   private
@@ -75,7 +72,7 @@ class GoodsController < ApplicationController
   end
 
   def check_owner
-    if @good.user != current_user
+    if @good.user != current_user || @good.sold?
       redirect_to root_path, alert: "あなたはこの商品の編集権限を持っていません。"
     end
   end
